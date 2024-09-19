@@ -1,14 +1,13 @@
+# h-index : 논문 개수(i+1), 피인용 횟수(citations[i]) 둘 중 최솟값
+
 def solution(citations):
-    # 인용 횟수를 내림차순으로 정렬
     citations.sort(reverse=True)
+    print(citations)
     
-    # 인덱스와 인용 횟수를 비교해가며 h-index 계산
     for i in range(len(citations)):
-        # 논문의 인용 횟수가 현재 인덱스보다 크거나 같다면 h-index 가능성 있음
         if citations[i] <= i:
             return i
     
-    # 모든 논문이 h-index보다 많이 인용되었다면, 전체 논문 수가 h-index
     return len(citations)
 
         
